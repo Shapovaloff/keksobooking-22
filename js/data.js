@@ -16,6 +16,7 @@ const PHOTOS = [
 ];
 const MAX_ROOMS = 5;
 const MAX_GUESTS = 10;
+const MAX_PRICE = 20000;
 const locationCoordinates = {
   X_MIN: 35.65,
   X_MAX: 35.7,
@@ -32,7 +33,7 @@ const createAd = () => {
     offer: {
       title: 'Заголовок',
       address: `${location.x}, ${location.y}`,
-      price: getRandomInt(1000, 20000),
+      price: getRandomInt(1000, MAX_PRICE),
       type: TYPE_DICTIONARY[getRandomArrayElement(TYPES)],
       rooms: getRandomInt(1, MAX_ROOMS),
       guests: getRandomInt(1, MAX_GUESTS),
