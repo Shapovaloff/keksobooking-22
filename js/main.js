@@ -1,11 +1,11 @@
 const getRandomInt = (min, max) => {
   if (min < 0 || max < 0) {
     throw new Error('Диапазон значений должен быть больше или равен 0');
-  };
+  }
 
   if (min > max) {
     [min, max] = [max, min];
-  };
+  }
 
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
@@ -13,11 +13,11 @@ const getRandomInt = (min, max) => {
 const getRandomFloat = (min, max, decimal) => {
   if (min < 0 || max < 0) {
     throw new Error('Диапазон значений должен быть больше или равен 0');
-  };
+  }
 
   if (min > max) {
     [min, max] = [max, min];
-  };
+  }
 
   return Number(Math.random() * (max - min) + min).toFixed(decimal);
 }
