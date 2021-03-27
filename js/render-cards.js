@@ -1,7 +1,4 @@
-const mapCanvas = document.querySelector('#map-canvas');
 const cardTemplate = document.querySelector('#card').content.querySelector('.popup');
-
-const adsListFragment = document.createDocumentFragment(); // Создаёт пустую дом ноду
 
 const renderFeatures = (element, array) => {
   element.innerHTML = '';
@@ -32,7 +29,8 @@ const renerPhotos = (element, array) => {
   return newPhotosFragment;
 }
 
-const renderCard = (element, {author, offer}) => {
+const renderCard = ({author, offer}) => {
+  const element = cardTemplate.cloneNode(true);
   element.querySelector('.popup__avatar').src = author.avatar;
   element.querySelector('.popup__title').textContent = offer.title;
   element.querySelector('.popup__text--address').textContent = offer.address;
@@ -61,14 +59,4 @@ const renderCard = (element, {author, offer}) => {
   return element;
 };
 
-
-const renderCards = (array) => {
-  array.forEach(({author, offer}) => {
-    const cardElement = cardTemplate.cloneNode(true);
-    adsListFragment.appendChild(renderCard(cardElement, {author, offer}))
-  });
-
-  return mapCanvas.appendChild(adsListFragment.firstElementChild);
-}
-
-export {renderCards};
+export {renderCard};
