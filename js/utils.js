@@ -42,7 +42,7 @@ const getRandomArray = (arr) => {
     throw new Error('Передаваемое значение не является массивом');
   }
 
-  return arr.filter(() => Math.random > 0.5);
+  return arr.filter(() => Math.random() > 0.5);
 };
 
 
