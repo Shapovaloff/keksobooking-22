@@ -1,8 +1,14 @@
 import {getRandomInt, getCoordinate, getRandomArrayElement, getRandomArray} from './utils.js';
 
 const TYPES = ['palace', 'flat', 'house', 'bungalow'];
+const TYPE_DICTIONARY = {
+  'palace': 'Дворец',
+  'flat': 'Квартира',
+  'house': 'Дом',
+  'bungalow': 'Бунгало',
+};
 const TIMES = ['12:00', '13:00', '14:00'];
-const FEATURES = ['wifi', 'dishwasher', 'parking', 'washer', 'elevator'];
+const FEATURES = ['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner'];
 const PHOTOS = [
   'http://o0.github.io/assets/images/tokyo/hotel1.jpg',
   'http://o0.github.io/assets/images/tokyo/hotel2.jpg',
@@ -22,12 +28,12 @@ const ADS_COUNT = 10;
 const createAd = () => {
   const location = getCoordinate(locationCoordinates);
   return {
-    author: { avatar: 'img/avatars/user0' + getRandomInt(1, 8) + '.png' },
+    author: { avatar: `img/avatars/user0${getRandomInt(1, 8)}.png` },
     offer: {
       title: 'Заголовок',
-      address: location.x + ', ' + location.y,
-      price: getRandomInt(1000, 10000),
-      type: getRandomArrayElement(TYPES),
+      address: `${location.x}, ${location.y}`,
+      price: getRandomInt(1000, 20000),
+      type: TYPE_DICTIONARY[getRandomArrayElement(TYPES)],
       rooms: getRandomInt(1, MAX_ROOMS),
       guests: getRandomInt(1, MAX_GUESTS),
       checkin: getRandomArrayElement(TIMES),
