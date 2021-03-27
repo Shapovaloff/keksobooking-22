@@ -1,2 +1,4 @@
 import {getAds} from './data.js';
-getAds()
+import {renderCards} from './render-cards.js';
+
+renderCards(getAds())
